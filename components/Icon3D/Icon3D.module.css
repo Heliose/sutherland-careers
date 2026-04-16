@@ -1,0 +1,28 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  filter: drop-shadow(0 10px 14px rgba(50, 50, 93, 0.22))
+    drop-shadow(0 4px 6px rgba(0, 0, 0, 0.12));
+}
+
+.floating {
+  animation: float3d 5s ease-in-out infinite;
+}
+
+@keyframes float3d {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating {
+    animation: none;
+  }
+}

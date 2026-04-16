@@ -1,0 +1,295 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+.mapContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 10 / 7;
+  background:
+    radial-gradient(800px 400px at 50% 50%, rgba(83, 58, 253, 0.06), transparent 70%),
+    var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-28);
+  overflow: hidden;
+  box-shadow: var(--shadow-standard);
+}
+
+.mapSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Pins */
+.pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+}
+
+.pinDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--c-primary);
+  border: 2px solid var(--c-white);
+  box-shadow: var(--shadow-ambient);
+  transition: transform var(--dur-fast) var(--ease-spring);
+  position: relative;
+  z-index: 2;
+}
+
+.pin:hover .pinDot,
+.pinActive .pinDot {
+  transform: scale(1.3);
+  background: var(--c-accent-magenta);
+}
+
+.pinRing {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--c-primary);
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translate(0, -2px);
+  animation: pin-pulse 3s ease-out infinite;
+  pointer-events: none;
+}
+
+.pin:hover .pinRing,
+.pinActive .pinRing {
+  opacity: 0.6;
+  border-color: var(--c-accent-magenta);
+}
+
+@keyframes pin-pulse {
+  0% {
+    transform: translate(-50%, -50%) translate(0, -2px) scale(1);
+    opacity: 0.5;
+  }
+  70% {
+    transform: translate(-50%, -50%) translate(0, -2px) scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(0, -2px) scale(2.2);
+    opacity: 0;
+  }
+}
+
+.pinLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-primary);
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  padding: 2px 6px;
+  border-radius: var(--r-4);
+  box-shadow: var(--shadow-ambient);
+  white-space: nowrap;
+  transition: background var(--dur-fast) ease, color var(--dur-fast) ease;
+}
+
+.pin:hover .pinLabel,
+.pinActive .pinLabel {
+  background: var(--c-primary);
+  color: var(--c-white);
+  border-color: var(--c-primary);
+}
+
+/* Tooltip (Liquid Glass — Dye) */
+.tooltip {
+  position: absolute;
+  z-index: 10;
+  transform: translate(-50%, calc(-100% - 28px));
+  pointer-events: none;
+  animation: tooltip-in var(--dur-base) var(--ease-out) both;
+}
+
+@keyframes tooltip-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 20px));
+  }
+}
+
+.tooltipInner {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(40px) saturate(1.8);
+  -webkit-backdrop-filter: blur(40px) saturate(1.8);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--r-16);
+  padding: var(--space-s);
+  box-shadow: var(--shadow-elevated);
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-12);
+  pointer-events: auto;
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .tooltipInner {
+    background: rgba(255, 255, 255, 0.98);
+  }
+}
+
+.tooltipHead {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--c-primary);
+}
+
+.tooltipName {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--c-heading);
+  letter-spacing: -0.1px;
+}
+
+.tooltipStats {
+  display: flex;
+  gap: var(--s-24);
+}
+
+.tooltipStat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tooltipStatVal {
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum";
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: -0.3px;
+  color: var(--c-heading);
+  line-height: 1;
+}
+
+.tooltipStatLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-body);
+}
+
+.tooltipCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--c-primary);
+  background: rgba(83, 58, 253, 0.08);
+  padding: 6px 10px;
+  border-radius: var(--r-full);
+  text-decoration: none;
+  transition: background var(--dur-fast) ease;
+  align-self: flex-start;
+}
+
+.tooltipCta:hover {
+  background: rgba(83, 58, 253, 0.15);
+  color: var(--c-primary);
+}
+
+/* Pills below map */
+.pills {
+  display: flex;
+  gap: var(--s-8);
+  flex-wrap: wrap;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-8);
+  padding: 10px var(--s-16);
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-16);
+  text-decoration: none;
+  color: inherit;
+  transition: background var(--dur-fast) ease, border-color var(--dur-fast) ease,
+    transform var(--dur-fast) ease, box-shadow var(--dur-fast) ease;
+  flex: 1;
+  min-width: 180px;
+}
+
+.pill:hover,
+.pillActive {
+  background: var(--c-primary-soft);
+  border-color: var(--c-border-soft);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-ambient);
+}
+
+.pillShort {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--c-primary);
+  background: rgba(83, 58, 253, 0.1);
+  padding: 4px 6px;
+  border-radius: var(--r-4);
+}
+
+.pillName {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--c-heading);
+  letter-spacing: -0.1px;
+  flex: 1;
+}
+
+.pillCount {
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum";
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--c-body);
+  letter-spacing: -0.2px;
+}
+
+@media (max-width: 900px) {
+  .mapContainer {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .pill {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+}

@@ -1,0 +1,250 @@
+.wrap {
+  width: 100%;
+}
+
+/* ==================== Tab bar ==================== */
+.tabBar {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  background: var(--c-surface-alt);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-full);
+  margin-bottom: var(--space-l);
+  flex-wrap: wrap;
+}
+
+.tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px var(--s-16);
+  background: transparent;
+  border: none;
+  border-radius: var(--r-full);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--c-body);
+  cursor: pointer;
+  transition: color var(--dur-fast) ease, background var(--dur-fast) ease;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.tab:hover {
+  color: var(--c-heading);
+}
+
+.tabActive {
+  background: var(--c-white);
+  color: var(--c-heading);
+  box-shadow: 0 1px 3px rgba(6, 27, 49, 0.06),
+    0 4px 12px rgba(6, 27, 49, 0.08);
+}
+
+.tabActive:hover {
+  color: var(--c-heading);
+}
+
+.tabLabel {
+  position: relative;
+  z-index: 1;
+}
+
+.tabCount {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--c-body);
+  background: rgba(6, 27, 49, 0.05);
+  padding: 2px 6px;
+  border-radius: var(--r-full);
+  min-width: 20px;
+  text-align: center;
+}
+
+.tabActive .tabCount {
+  background: var(--c-primary);
+  color: var(--c-white);
+}
+
+/* Glow accent when active */
+.tabGlow {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-full);
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(83, 58, 253, 0.12) 0%,
+    rgba(249, 107, 238, 0.12) 100%
+  );
+  opacity: 0.6;
+}
+
+/* ==================== Panel ==================== */
+.panel {
+  animation: panel-in var(--dur-slow) var(--ease-out) both;
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.panelIntro {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 17px;
+  line-height: 1.5;
+  font-weight: 300;
+  color: var(--c-body);
+  max-width: 620px;
+  margin: 0 0 var(--space-l);
+}
+
+/* ==================== Grid ==================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-s);
+}
+
+.span-3 {
+  grid-column: span 3;
+}
+.span-4 {
+  grid-column: span 4;
+}
+.span-5 {
+  grid-column: span 5;
+}
+.span-6 {
+  grid-column: span 6;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-20);
+  padding: var(--space-m);
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-20);
+  box-shadow: var(--shadow-ambient);
+  transition: transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) ease;
+  min-height: 220px;
+  height: 100%;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-20);
+  background: radial-gradient(
+    300px 160px at 100% 0%,
+    rgba(83, 58, 253, 0.05) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-base) ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-elevated);
+  border-color: var(--c-border-soft);
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-8);
+  flex: 1;
+  position: relative;
+}
+
+.name {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  color: var(--c-heading);
+  line-height: 1.15;
+}
+
+.blurb {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 300;
+  color: var(--c-body);
+}
+
+.index {
+  position: absolute;
+  top: var(--s-20);
+  right: var(--s-24);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--c-body);
+  opacity: 0.5;
+}
+
+@container (min-width: 480px) {
+  .card {
+    padding: var(--s-32);
+  }
+  .name {
+    font-size: 22px;
+    letter-spacing: -0.35px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .span-3,
+  .span-4,
+  .span-5,
+  .span-6 {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .span-3,
+  .span-4,
+  .span-5,
+  .span-6 {
+    grid-column: span 1;
+  }
+  .tab {
+    flex: 1 1 calc(50% - 4px);
+    justify-content: center;
+  }
+}

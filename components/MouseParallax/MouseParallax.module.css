@@ -1,0 +1,33 @@
+.wrap {
+  --mx: 0px;
+  --my: 0px;
+  position: relative;
+  display: contents;
+}
+
+.wrap > :global(.parallax-slow) {
+  transform: translate3d(
+    calc(var(--mx) * 0.3),
+    calc(var(--my) * 0.3),
+    0
+  );
+  transition: transform 0.06s linear;
+}
+
+.wrap > :global(.parallax-med) {
+  transform: translate3d(
+    calc(var(--mx) * 0.7),
+    calc(var(--my) * 0.7),
+    0
+  );
+  transition: transform 0.06s linear;
+}
+
+.wrap > :global(.parallax-fast) {
+  transform: translate3d(
+    calc(var(--mx) * 1.2),
+    calc(var(--my) * 1.2),
+    0
+  );
+  transition: transform 0.06s linear;
+}

@@ -1,0 +1,114 @@
+.wrap {
+  margin: 0;
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+  position: relative;
+  max-width: 780px;
+}
+
+.align-center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.align-left {
+  margin-right: auto;
+}
+
+.mark {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--c-bg);
+  padding: 0 var(--space-s);
+  font-family: var(--font-serif);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  font-style: italic;
+  font-size: 72px;
+  line-height: 1;
+  color: var(--c-primary);
+  user-select: none;
+}
+
+.align-left .mark {
+  left: var(--space-m);
+  transform: none;
+}
+
+.quote {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-variation-settings: "opsz" 144, "SOFT" 60, "WONK" 1;
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--step-3);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--c-heading);
+  text-wrap: balance;
+}
+
+.cite {
+  margin-top: var(--space-m);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-body);
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2xs);
+  flex-wrap: wrap;
+}
+
+.align-left .cite {
+  justify-content: flex-start;
+}
+
+.citeName {
+  color: var(--c-heading);
+}
+
+.citeSep {
+  color: var(--c-body-muted);
+}
+
+.citeRole {
+  color: var(--c-body);
+}
+
+.accent {
+  border-top-color: var(--c-primary);
+  border-bottom-color: var(--c-primary);
+}
+
+.accent .mark {
+  color: var(--c-accent-magenta);
+}
+
+.dark {
+  border-top-color: rgba(255, 255, 255, 0.15);
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark .mark {
+  background: var(--c-bg-brand-dark);
+  color: var(--c-accent-magenta);
+}
+
+.dark .quote {
+  color: var(--c-on-dark);
+}
+
+.dark .cite {
+  color: var(--c-on-dark-muted);
+}
+
+.dark .citeName {
+  color: var(--c-on-dark);
+}

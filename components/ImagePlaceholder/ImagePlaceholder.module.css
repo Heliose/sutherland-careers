@@ -1,0 +1,183 @@
+.frame {
+  margin: 0;
+  position: relative;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  border-radius: var(--r-8);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: var(--shadow-elevated);
+  isolation: isolate;
+}
+
+.photo .inner {
+  aspect-ratio: 4 / 3;
+}
+
+.portrait .inner {
+  aspect-ratio: 3 / 4;
+}
+
+.landscape .inner {
+  aspect-ratio: 16 / 9;
+}
+
+.cover .inner {
+  aspect-ratio: 21 / 9;
+}
+
+.tile .inner {
+  aspect-ratio: 1 / 1;
+}
+
+.poster .inner {
+  aspect-ratio: 2 / 3;
+}
+
+.polaroid {
+  background: var(--c-white);
+  padding: 10px 10px 44px;
+  border-radius: var(--r-5);
+  box-shadow: var(--shadow-elevated);
+}
+
+.polaroid .inner {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--r-4);
+  box-shadow: none;
+}
+
+.polaroid .caption {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  right: 16px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--c-body);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.caption {
+  margin-top: var(--s-12);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 12px;
+  color: var(--c-body);
+  letter-spacing: 0.04em;
+}
+
+.shimmer {
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.14) 50%,
+    transparent 70%
+  );
+  animation: shimmer 7s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(60%);
+  }
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px
+  );
+  background-size: 3px 3px;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.bloomA {
+  position: absolute;
+  top: -20%;
+  right: -15%;
+  width: 60%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.55) 0%,
+    transparent 60%
+  );
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bloomB {
+  position: absolute;
+  bottom: -25%;
+  left: -20%;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(6, 27, 49, 0.35) 0%,
+    transparent 60%
+  );
+  filter: blur(6px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.badge {
+  position: absolute;
+  top: var(--s-16);
+  left: var(--s-16);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--c-white);
+  background: rgba(6, 27, 49, 0.55);
+  backdrop-filter: blur(8px);
+  padding: 4px 8px;
+  border-radius: var(--r-4);
+  z-index: 3;
+}
+
+.label {
+  position: absolute;
+  bottom: var(--s-16);
+  left: var(--s-16);
+  right: var(--s-16);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: -0.1px;
+  color: var(--c-white);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer {
+    animation: none;
+    display: none;
+  }
+}

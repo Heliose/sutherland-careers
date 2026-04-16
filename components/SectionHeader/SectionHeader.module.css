@@ -1,0 +1,36 @@
+.wrap {
+  margin-bottom: var(--s-48);
+  max-width: 720px;
+}
+
+.align-left {
+  margin-left: 0;
+}
+
+.align-center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-purple);
+  margin-bottom: var(--s-16);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+}
+
+.subtitle {
+  margin-top: var(--s-16);
+  max-width: 620px;
+}
+
+.align-center .subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}

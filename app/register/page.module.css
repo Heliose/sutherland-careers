@@ -1,0 +1,223 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--s-48);
+  align-items: flex-start;
+}
+
+.formCard {
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-8);
+  padding: var(--s-40);
+  box-shadow: var(--shadow-elevated);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-20);
+}
+
+.socialRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-12);
+}
+
+.sep {
+  position: relative;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 12px;
+  color: var(--c-body);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sep::before,
+.sep::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 100px);
+  height: 1px;
+  background: var(--c-border);
+}
+
+.sep::before {
+  left: 0;
+}
+
+.sep::after {
+  right: 0;
+}
+
+.sep span {
+  background: var(--c-white);
+  padding: 0 var(--s-12);
+  position: relative;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-16);
+}
+
+.rules {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px var(--s-16);
+  margin-top: var(--s-12);
+}
+
+.rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 12px;
+  color: var(--c-body);
+  font-weight: 300;
+}
+
+.rule svg {
+  color: var(--c-body);
+}
+
+.ruleOk {
+  color: var(--c-success-text);
+}
+
+.ruleOk svg {
+  color: var(--c-success-text);
+}
+
+.checkRow {
+  display: flex;
+  gap: var(--s-8);
+  align-items: flex-start;
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--c-body);
+  line-height: 1.4;
+}
+
+.checkRow input {
+  margin-top: 3px;
+  accent-color: var(--c-purple);
+}
+
+.checkRow a {
+  color: var(--c-purple);
+}
+
+.foot {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 13px;
+  color: var(--c-body);
+}
+
+.foot a {
+  color: var(--c-purple);
+  font-weight: 400;
+}
+
+.aside {
+  position: sticky;
+  top: 88px;
+}
+
+.benefitsCard {
+  background: var(--c-brand-dark);
+  border-radius: var(--r-8);
+  padding: var(--s-32);
+  color: var(--c-white);
+  box-shadow: var(--shadow-elevated);
+  position: relative;
+  overflow: hidden;
+}
+
+.benefitsCard::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(249, 107, 238, 0.3) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.asideTitle {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-purple-light);
+  margin-bottom: var(--s-24);
+  position: relative;
+}
+
+.benefitList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-16);
+  position: relative;
+}
+
+.benefitList li {
+  display: flex;
+  gap: var(--s-12);
+  align-items: flex-start;
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+.benefitDot {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(21, 190, 83, 0.25);
+  color: var(--c-success);
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: var(--s-24);
+  }
+  .formCard {
+    padding: var(--s-24);
+  }
+  .row,
+  .socialRow,
+  .rules {
+    grid-template-columns: 1fr;
+  }
+}

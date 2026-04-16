@@ -1,0 +1,100 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-8);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  padding: var(--s-8) var(--s-16);
+  border-radius: var(--r-4);
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.size-sm {
+  font-size: 14px;
+  padding: var(--s-6) var(--s-12);
+}
+
+.size-md {
+  font-size: 16px;
+  padding: var(--s-8) var(--s-16);
+}
+
+.size-lg {
+  font-size: 16px;
+  padding: 10px var(--s-20);
+}
+
+.full {
+  width: 100%;
+}
+
+/* Primary */
+.primary {
+  background: var(--c-purple);
+  color: var(--c-white);
+  border-color: var(--c-purple);
+}
+
+.primary:hover {
+  background: var(--c-purple-hover);
+  border-color: var(--c-purple-hover);
+  color: var(--c-white);
+}
+
+/* Ghost */
+.ghost {
+  background: transparent;
+  color: var(--c-purple);
+  border-color: var(--c-purple-light);
+}
+
+.ghost:hover {
+  background: rgba(83, 58, 253, 0.05);
+  color: var(--c-purple-hover);
+  border-color: var(--c-purple-light);
+}
+
+/* Info */
+.info {
+  background: transparent;
+  color: #2874ad;
+  border-color: rgba(43, 145, 223, 0.2);
+}
+
+.info:hover {
+  background: rgba(43, 145, 223, 0.05);
+}
+
+/* Neutral */
+.neutral {
+  background: transparent;
+  color: rgba(16, 16, 16, 0.6);
+  border-color: rgb(212, 222, 233);
+}
+
+.neutral:hover {
+  background: rgba(16, 16, 16, 0.03);
+  color: var(--c-navy);
+}
+
+/* Dark-ghost (for dark backgrounds) */
+.dark-ghost {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--c-white);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark-ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--c-white);
+  border-color: rgba(255, 255, 255, 0.32);
+}

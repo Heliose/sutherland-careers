@@ -1,0 +1,32 @@
+.svg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+}
+
+.path {
+  transition: stroke-dashoffset 0.08s linear;
+}
+
+.dot {
+  transition: opacity 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .path {
+    stroke-dashoffset: 0 !important;
+    transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .svg {
+    display: none;
+  }
+}

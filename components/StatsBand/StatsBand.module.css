@@ -1,0 +1,143 @@
+.band {
+  display: grid;
+  gap: var(--s-24);
+  margin: 0;
+}
+
+.horizontal {
+  /* grid-template-columns set inline from stats.length */
+}
+
+.vertical {
+  grid-template-columns: 1fr;
+  gap: var(--s-20);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-8);
+  min-width: 0;
+}
+
+/* Horizontal: right divider between items */
+.horizontal .item {
+  padding-right: var(--s-24);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.horizontal.light .item {
+  border-right: 1px solid var(--c-border);
+}
+
+.horizontal .item:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+/* Vertical: bottom divider, horizontal rhythm */
+.vertical .item {
+  padding-bottom: var(--s-16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.vertical.light .item {
+  border-bottom: 1px solid var(--c-border);
+}
+
+.vertical .item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.value {
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum";
+  font-size: 56px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1.4px;
+  color: var(--c-white);
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.light .value {
+  color: var(--c-navy);
+}
+
+/* Vertical placements are usually in narrower columns — trim the display size */
+.vertical .value {
+  font-size: 40px;
+  letter-spacing: -0.8px;
+}
+
+.suffix {
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--c-purple);
+  letter-spacing: -0.4px;
+}
+
+.vertical .suffix {
+  font-size: 22px;
+  letter-spacing: -0.22px;
+}
+
+.light .suffix {
+  color: var(--c-purple);
+}
+
+.dark .suffix {
+  color: var(--c-magenta);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.light .label {
+  color: var(--c-body);
+}
+
+@media (max-width: 1024px) {
+  .horizontal {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .horizontal .value {
+    font-size: 42px;
+    letter-spacing: -0.96px;
+  }
+  .horizontal .item:nth-child(2n) {
+    border-right: none;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .horizontal {
+    grid-template-columns: 1fr !important;
+  }
+  .horizontal .item {
+    border-right: none !important;
+    padding-right: 0;
+    padding-bottom: var(--s-16);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .horizontal.light .item {
+    border-bottom: 1px solid var(--c-border);
+  }
+  .horizontal .item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}

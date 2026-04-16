@@ -1,0 +1,75 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-6);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--c-label);
+  line-height: 1.2;
+}
+
+.input,
+.textarea,
+.select {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01";
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--c-navy);
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-4);
+  padding: 10px var(--s-12);
+  line-height: 1.4;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--c-body);
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--c-purple);
+  box-shadow: 0 0 0 3px rgba(83, 58, 253, 0.15);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+.selectWrap {
+  position: relative;
+}
+
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: var(--s-32);
+  cursor: pointer;
+}
+
+.chev {
+  position: absolute;
+  right: var(--s-12);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--c-body);
+  pointer-events: none;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--c-body);
+  font-weight: 400;
+}

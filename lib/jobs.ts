@@ -1,0 +1,422 @@
+export type Job = {
+  id: string;
+  title: string;
+  category: string;
+  subCategory: string;
+  city: string;
+  region: string;
+  country: string;
+  workType: "Full-time" | "Part-time" | "Contract";
+  workModel: "On-site" | "Remote" | "Hybrid";
+  salaryMin: number;
+  salaryMax: number;
+  currency: string;
+  postedDays: number;
+  description: string;
+};
+
+export const jobCategories = [
+  "All categories",
+  "Customer Experience",
+  "Technology & Engineering",
+  "Operations",
+  "Analytics",
+  "Finance & Accounting",
+  "Sales & Marketing",
+  "Human Resources",
+  "Training & Quality",
+];
+
+export const workTypes = ["All types", "Full-time", "Part-time", "Contract"];
+export const workModels = ["All models", "On-site", "Remote", "Hybrid"];
+
+export const jobs: Job[] = [
+  {
+    id: "SG-2041",
+    title: "Customer Experience Associate — Banking",
+    category: "Customer Experience",
+    subCategory: "Voice",
+    city: "Rochester",
+    region: "North America",
+    country: "United States",
+    workType: "Full-time",
+    workModel: "Hybrid",
+    salaryMin: 42000,
+    salaryMax: 54000,
+    currency: "USD",
+    postedDays: 2,
+    description:
+      "Help retail banking customers navigate account servicing, disputes, and everyday money moments.",
+  },
+  {
+    id: "SG-2042",
+    title: "Senior IT Support Engineer",
+    category: "Technology & Engineering",
+    subCategory: "IT Operations",
+    city: "Bangalore",
+    region: "Asia Pacific",
+    country: "India",
+    workType: "Full-time",
+    workModel: "On-site",
+    salaryMin: 1400000,
+    salaryMax: 1900000,
+    currency: "INR",
+    postedDays: 4,
+    description:
+      "Own L2/L3 escalations for enterprise Windows and Linux estates. VOIP/PBX experience a plus.",
+  },
+  {
+    id: "SG-2043",
+    title: "Workforce Analyst",
+    category: "Analytics",
+    subCategory: "Forecasting",
+    city: "Bogotá",
+    region: "Latin America",
+    country: "Colombia",
+    workType: "Full-time",
+    workModel: "Remote",
+    salaryMin: 48000000,
+    salaryMax: 66000000,
+    currency: "COP",
+    postedDays: 1,
+    description:
+      "Build schedules that keep our contact centres humming and our teammates rested.",
+  },
+  {
+    id: "SG-2044",
+    title: "Mortgage Servicing Specialist",
+    category: "Operations",
+    subCategory: "Mortgage",
+    city: "Chesapeake",
+    region: "North America",
+    country: "United States",
+    workType: "Full-time",
+    workModel: "On-site",
+    salaryMin: 45000,
+    salaryMax: 58000,
+    currency: "USD",
+    postedDays: 6,
+    description:
+      "Process payments, modifications, and escrow items with accuracy and empathy.",
+  },
+  {
+    id: "SG-2045",
+    title: "Insurance Claims Adjuster",
+    category: "Operations",
+    subCategory: "Insurance",
+    city: "Sofia",
+    region: "Europe",
+    country: "Bulgaria",
+    workType: "Full-time",
+    workModel: "Hybrid",
+    salaryMin: 38000,
+    salaryMax: 48000,
+    currency: "BGN",
+    postedDays: 8,
+    description:
+      "Investigate, negotiate, and resolve personal-lines claims with care.",
+  },
+  {
+    id: "SG-2046",
+    title: "Training Delivery Lead",
+    category: "Training & Quality",
+    subCategory: "Learning",
+    city: "Manila",
+    region: "Asia Pacific",
+    country: "Philippines",
+    workType: "Full-time",
+    workModel: "Hybrid",
+    salaryMin: 720000,
+    salaryMax: 900000,
+    currency: "PHP",
+    postedDays: 3,
+    description:
+      "Design and deliver onboarding programmes that shorten time-to-proficiency.",
+  },
+  {
+    id: "SG-2047",
+    title: "Team Manager — Customer Experience",
+    category: "Operations",
+    subCategory: "Leadership",
+    city: "Kingston",
+    region: "North America",
+    country: "Jamaica",
+    workType: "Full-time",
+    workModel: "On-site",
+    salaryMin: 5800000,
+    salaryMax: 7200000,
+    currency: "JMD",
+    postedDays: 5,
+    description:
+      "Lead a team of up to 20 associates. Coach, develop, and hit the metrics that matter.",
+  },
+  {
+    id: "SG-2048",
+    title: "Cloud Engineer — AWS",
+    category: "Technology & Engineering",
+    subCategory: "Cloud",
+    city: "Remote",
+    region: "North America",
+    country: "United States",
+    workType: "Full-time",
+    workModel: "Remote",
+    salaryMin: 110000,
+    salaryMax: 145000,
+    currency: "USD",
+    postedDays: 1,
+    description:
+      "Build and operate cloud infrastructure for our largest banking client.",
+  },
+  {
+    id: "SG-2049",
+    title: "Bilingual CX Associate (ES/EN)",
+    category: "Customer Experience",
+    subCategory: "Voice",
+    city: "Guadalajara",
+    region: "Latin America",
+    country: "Mexico",
+    workType: "Full-time",
+    workModel: "Hybrid",
+    salaryMin: 180000,
+    salaryMax: 240000,
+    currency: "MXN",
+    postedDays: 2,
+    description:
+      "Support Spanish- and English-speaking customers of a major travel platform.",
+  },
+  {
+    id: "SG-2050",
+    title: "Data Analyst — Healthcare",
+    category: "Analytics",
+    subCategory: "Reporting",
+    city: "Hyderabad",
+    region: "Asia Pacific",
+    country: "India",
+    workType: "Full-time",
+    workModel: "Hybrid",
+    salaryMin: 900000,
+    salaryMax: 1300000,
+    currency: "INR",
+    postedDays: 7,
+    description:
+      "Turn claims and member data into insights that shape our healthcare services.",
+  },
+  {
+    id: "SG-2051",
+    title: "Sales Development Representative",
+    category: "Sales & Marketing",
+    subCategory: "SDR",
+    city: "San Francisco",
+    region: "North America",
+    country: "United States",
+    workType: "Full-time",
+    workModel: "Hybrid",
+    salaryMin: 70000,
+    salaryMax: 92000,
+    currency: "USD",
+    postedDays: 10,
+    description:
+      "Prospect, qualify, and open doors with decision-makers at enterprise accounts.",
+  },
+  {
+    id: "SG-2052",
+    title: "Finance Operations Analyst",
+    category: "Finance & Accounting",
+    subCategory: "FP&A",
+    city: "Tulsa",
+    region: "North America",
+    country: "United States",
+    workType: "Full-time",
+    workModel: "On-site",
+    salaryMin: 62000,
+    salaryMax: 78000,
+    currency: "USD",
+    postedDays: 12,
+    description:
+      "Partner with operations leaders on budgets, forecasts, and performance reviews.",
+  },
+  {
+    id: "SG-2053",
+    title: "Technical Recruiter",
+    category: "Human Resources",
+    subCategory: "Talent Acquisition",
+    city: "Kochi",
+    region: "Asia Pacific",
+    country: "India",
+    workType: "Full-time",
+    workModel: "Hybrid",
+    salaryMin: 700000,
+    salaryMax: 1100000,
+    currency: "INR",
+    postedDays: 3,
+    description:
+      "Hire the engineers we need to power our Enterprise IT programmes.",
+  },
+  {
+    id: "SG-2054",
+    title: "Quality Assurance Specialist",
+    category: "Training & Quality",
+    subCategory: "QA",
+    city: "Prishtina",
+    region: "Europe",
+    country: "Kosovo",
+    workType: "Full-time",
+    workModel: "On-site",
+    salaryMin: 18000,
+    salaryMax: 24000,
+    currency: "EUR",
+    postedDays: 4,
+    description:
+      "Evaluate calls, chats, and emails against quality frameworks, then coach for improvement.",
+  },
+  {
+    id: "SG-2055",
+    title: "Linux Systems Engineer",
+    category: "Technology & Engineering",
+    subCategory: "Systems",
+    city: "Cairo",
+    region: "Middle East & North Africa",
+    country: "Egypt",
+    workType: "Full-time",
+    workModel: "Hybrid",
+    salaryMin: 420000,
+    salaryMax: 580000,
+    currency: "EGP",
+    postedDays: 9,
+    description:
+      "Operate production Linux fleets for global enterprise clients.",
+  },
+  {
+    id: "SG-2056",
+    title: "Digital Marketing Associate",
+    category: "Sales & Marketing",
+    subCategory: "Growth",
+    city: "Dubai",
+    region: "Middle East & North Africa",
+    country: "United Arab Emirates",
+    workType: "Full-time",
+    workModel: "Hybrid",
+    salaryMin: 160000,
+    salaryMax: 220000,
+    currency: "AED",
+    postedDays: 2,
+    description:
+      "Run paid and organic campaigns for a Middle East telco partner.",
+  },
+  {
+    id: "SG-2057",
+    title: "Customer Experience Associate — Work from Home",
+    category: "Customer Experience",
+    subCategory: "Voice",
+    city: "Remote",
+    region: "North America",
+    country: "United States",
+    workType: "Part-time",
+    workModel: "Remote",
+    salaryMin: 38000,
+    salaryMax: 46000,
+    currency: "USD",
+    postedDays: 1,
+    description:
+      "Support a leading retailer from your home office. Equipment provided.",
+  },
+  {
+    id: "SG-2058",
+    title: "Accounts Payable Specialist",
+    category: "Finance & Accounting",
+    subCategory: "AP",
+    city: "Mumbai",
+    region: "Asia Pacific",
+    country: "India",
+    workType: "Full-time",
+    workModel: "On-site",
+    salaryMin: 500000,
+    salaryMax: 720000,
+    currency: "INR",
+    postedDays: 6,
+    description:
+      "Process invoices, resolve discrepancies, and keep vendors paid on time.",
+  },
+  {
+    id: "SG-2059",
+    title: "People Partner — Europe",
+    category: "Human Resources",
+    subCategory: "HRBP",
+    city: "London",
+    region: "Europe",
+    country: "United Kingdom",
+    workType: "Full-time",
+    workModel: "Hybrid",
+    salaryMin: 55000,
+    salaryMax: 72000,
+    currency: "GBP",
+    postedDays: 11,
+    description:
+      "Partner with leaders across our European operations on everything people-related.",
+  },
+  {
+    id: "SG-2060",
+    title: "Bilingual CX Associate (PT/EN)",
+    category: "Customer Experience",
+    subCategory: "Voice",
+    city: "Medellín",
+    region: "Latin America",
+    country: "Colombia",
+    workType: "Full-time",
+    workModel: "On-site",
+    salaryMin: 42000000,
+    salaryMax: 60000000,
+    currency: "COP",
+    postedDays: 3,
+    description:
+      "Support Portuguese- and English-speaking customers of a global hospitality brand.",
+  },
+  {
+    id: "SG-2061",
+    title: "Contact Center Operations Manager",
+    category: "Operations",
+    subCategory: "Leadership",
+    city: "Clifton",
+    region: "North America",
+    country: "United States",
+    workType: "Full-time",
+    workModel: "On-site",
+    salaryMin: 95000,
+    salaryMax: 120000,
+    currency: "USD",
+    postedDays: 5,
+    description:
+      "Own P&L for a multi-team site supporting a Fortune 100 client.",
+  },
+  {
+    id: "SG-2062",
+    title: "SQL Developer",
+    category: "Technology & Engineering",
+    subCategory: "Data",
+    city: "Chennai",
+    region: "Asia Pacific",
+    country: "India",
+    workType: "Full-time",
+    workModel: "Hybrid",
+    salaryMin: 800000,
+    salaryMax: 1200000,
+    currency: "INR",
+    postedDays: 7,
+    description:
+      "Write, tune, and maintain queries that power our reporting and analytics stack.",
+  },
+];
+
+export const formatSalary = (job: Job) => {
+  const fmt = new Intl.NumberFormat("en-US");
+  return `${job.currency} ${fmt.format(job.salaryMin)}–${fmt.format(
+    job.salaryMax
+  )}`;
+};
+
+export const postedLabel = (days: number) => {
+  if (days <= 1) return "Posted today";
+  if (days < 7) return `Posted ${days} days ago`;
+  if (days < 14) return "Posted last week";
+  return `Posted ${Math.floor(days / 7)} weeks ago`;
+};
