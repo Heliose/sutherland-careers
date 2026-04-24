@@ -56,7 +56,7 @@ const quickFilters: QuickFilter[] = [
   },
 ];
 
-type SortKey = "recent" | "alpha" | "salary";
+type SortKey = "recent" | "alpha";
 
 export default function JobResultsPage() {
   const [keyword, setKeyword] = useState("");
@@ -64,7 +64,6 @@ export default function JobResultsPage() {
   const [workType, setWorkType] = useState(workTypes[0]);
   const [workModel, setWorkModel] = useState(workModels[0]);
   const [region, setRegion] = useState("All regions");
-  const [salary, setSalary] = useState(0);
   const [sort, setSort] = useState<SortKey>("recent");
   const [filtersOpen, setFiltersOpen] = useState(false);
 
@@ -93,8 +92,6 @@ export default function JobResultsPage() {
     }
     if (sort === "alpha") {
       list.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (sort === "salary") {
-      list.sort((a, b) => b.salaryMax - a.salaryMax);
     } else {
       list.sort((a, b) => a.postedDays - b.postedDays);
     }
@@ -107,7 +104,6 @@ export default function JobResultsPage() {
     setWorkType(workTypes[0]);
     setWorkModel(workModels[0]);
     setRegion("All regions");
-    setSalary(0);
   };
 
   return (
@@ -209,27 +205,6 @@ export default function JobResultsPage() {
                 ))}
               </Select>
             </div>
-            <div className={styles.filterGroup}>
-              <div className={styles.rangeRow}>
-                <label htmlFor="salary" className={styles.rangeLabel}>
-                  Minimum salary
-                </label>
-                <span className={`${styles.rangeValue} tnum`}>
-                  ${salary.toLocaleString()}
-                </span>
-              </div>
-              <input
-                id="salary"
-                type="range"
-                min={0}
-                max={200000}
-                step={5000}
-                value={salary}
-                onChange={(e) => setSalary(Number(e.target.value))}
-                className={styles.range}
-              />
-            </div>
-
             <div className={styles.mapBlock}>
               <div className={styles.mapHeader}>
                 <Map size={14} strokeWidth={1.5} />
@@ -358,7 +333,6 @@ export default function JobResultsPage() {
                   >
                     <option value="recent">Most recent</option>
                     <option value="alpha">A – Z</option>
-                    <option value="salary">Salary (high to low)</option>
                   </select>
                 </div>
               </div>

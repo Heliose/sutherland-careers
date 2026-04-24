@@ -70,16 +70,6 @@ export function JobPostingJsonLd() {
     ...(job.workModel === "Remote"
       ? { jobLocationType: "TELECOMMUTE" }
       : {}),
-    baseSalary: {
-      "@type": "MonetaryAmount",
-      currency: job.currency,
-      value: {
-        "@type": "QuantitativeValue",
-        minValue: job.salaryMin,
-        maxValue: job.salaryMax,
-        unitText: "YEAR",
-      },
-    },
     applicantLocationRequirements: {
       "@type": "Country",
       name: job.country,

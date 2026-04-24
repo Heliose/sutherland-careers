@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { MapPin, Clock, Wallet, Briefcase, Bookmark, Share2 } from "lucide-react";
+import { MapPin, Clock, Briefcase, Bookmark, Share2 } from "lucide-react";
 import { Badge } from "@/components/Badge/Badge";
-import { formatSalary, postedLabel, type Job } from "@/lib/jobs";
+import { postedLabel, type Job } from "@/lib/jobs";
 import styles from "./JobCard.module.css";
 
 export function JobCard({ job }: { job: Job }) {
@@ -33,10 +33,6 @@ export function JobCard({ job }: { job: Job }) {
         <span className={styles.metaItem}>
           <Briefcase size={14} strokeWidth={1.5} />
           {job.workType} · {job.workModel}
-        </span>
-        <span className={`${styles.metaItem} tnum`}>
-          <Wallet size={14} strokeWidth={1.5} />
-          {formatSalary(job)}
         </span>
         <span className={styles.metaItem}>
           <Clock size={14} strokeWidth={1.5} />
