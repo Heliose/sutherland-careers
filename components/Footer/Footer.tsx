@@ -62,7 +62,7 @@ export function Footer() {
         <div className={styles.bottom}>
           <span className={styles.legal}>
             © {new Date().getFullYear()} Sutherland Global Services. Careers
-            site — a design-system study.
+            site — a prototype by Zenciences
           </span>
           <div className={styles.legalLinks}>
             <a href="#">Terms of use</a>
