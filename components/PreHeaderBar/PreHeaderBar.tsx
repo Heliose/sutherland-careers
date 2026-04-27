@@ -18,13 +18,6 @@ export function PreHeaderBar() {
           </span>
         </div>
         <div className={styles.group}>
-          <span className={styles.itemSubtle}>
-            Need an accommodation?{" "}
-            <Link href="/contact" className={styles.linkSubtle}>
-              We&rsquo;re here to help
-            </Link>
-          </span>
-          <span className={styles.divider} aria-hidden />
           <button className={styles.lang} aria-haspopup="listbox" aria-label="Change language">
             <Globe2 size={13} strokeWidth={1.5} />
             English
